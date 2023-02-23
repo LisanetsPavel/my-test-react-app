@@ -4,8 +4,12 @@ import './App.css';
 
 function App() {
 
+  const tmp = 1;
+
+  console.log(tmp);
+
   return (
-    <div className="App">
+    <div className='App'>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo"/>
         <p>
