@@ -25,13 +25,32 @@
         "prettier"
     ],
     "rules": {
-        "react/jsx-filename-extension": [2, { "extensions": [".tsx"] }],
-        "import/no-unresolved": 0,
+        "react/jsx-filename-extension": [
+            2,
+            {
+                "extensions": [
+                    ".tsx"
+                ]
+            }
+        ],
+        "import/no-unresolved": [
+            2,
+            {
+                "caseSensitive": false
+            }
+        ],
         "import/extensions": "off"
-    }
-/*    "settings": {
+    },
+    "settings": {
         "import/resolver": {
-            "typescript": {}
+            "node": {
+                "extensions": [
+                    ".ts",
+                    ".tsx",
+                    ".js",
+                    ".jsx"
+                ]
+            }
         }
-    }*/
+    }
 }
