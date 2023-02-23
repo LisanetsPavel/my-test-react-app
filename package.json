@@ -52,6 +52,6 @@
     "prettier": "^2.8.4"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.ts": "eslint --cache --fix"
   }
 }
