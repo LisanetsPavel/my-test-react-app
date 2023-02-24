@@ -1,8 +1,8 @@
 import React from 'react';
 import { CssBaseline } from '@mui/material';
 
-import TestComponent from '../../Tmp/TestComponent';
-import Header from '../Header';
+import Header from '@views/App/Header';
+import TestComponent from '@views/Tmp';
 
 function AppLayout() {
   return (
