@@ -39,7 +39,8 @@
                 "caseSensitive": false
             }
         ],
-        "import/extensions": "off"
+        "import/extensions": "off",
+        "import/prefer-default-export": 0
     },
     "settings": {
         "import/resolver": {

@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { createTheme, ThemeProvider } from '@mui/material';
 import AppLayout from './views/App/AppLayout';
+import { mainTheme } from './styles/themes';
+
+const theme = createTheme(mainTheme);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <AppLayout />
+    <ThemeProvider theme={theme}>
+      <AppLayout />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

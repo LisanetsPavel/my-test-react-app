@@ -1,18 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
+import style from '@views/App/Header/style';
 
 export default function Header() {
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100px',
-        borderBottom: '1px solid',
-      }}
-    >
-      Header
-    </Box>
-  );
+  return <Box sx={style}>Header</Box>;
 }
