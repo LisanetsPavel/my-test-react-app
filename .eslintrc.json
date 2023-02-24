@@ -50,6 +50,14 @@
                     ".js",
                     ".jsx"
                 ]
+            },
+            "alias": {
+                "map": [
+                    ["@views", "./src/views"]
+                ],
+                "extensions": [
+                    ".ts", ".js", ".jsx", ".json"
+                ]
             }
         }
     }
