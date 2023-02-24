@@ -2,17 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createTheme, ThemeProvider } from '@mui/material';
-import AppLayout from './views/App/AppLayout';
-import { mainTheme } from './styles/themes';
+import { Provider } from 'react-redux';
+import { store } from '@configs/store';
+import { mainTheme } from '@styles/themes';
+import AppLayout from '@views/App/AppLayout';
 
 const theme = createTheme(mainTheme);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <AppLayout />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <AppLayout />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 );
 

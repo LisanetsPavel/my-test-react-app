@@ -13,6 +13,12 @@
         "prettier"
     ],
     "overrides": [
+        {
+            "files": ["src/store/*/reducers/*.ts"],
+            "rules": {
+                "no-param-reassign": 0
+            }
+        }
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -54,7 +60,10 @@
             },
             "alias": {
                 "map": [
-                    ["@views", "./src/views"]
+                    ["@views", "./src/views"],
+                    ["@configs", "./src/configs"],
+                    ["@styles", "./src/styles"],
+                    ["@store", "./src/store"]
                 ],
                 "extensions": [
                     ".ts", ".js", ".jsx", ".json"
