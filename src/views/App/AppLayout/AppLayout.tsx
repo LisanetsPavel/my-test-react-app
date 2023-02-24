@@ -1,16 +1,20 @@
 import React from 'react';
-import { CssBaseline } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 
 import Header from '@views/App/Header';
-import TestComponent from '@views/Tmp';
+import { LeftNavigationPanel } from '@views/App/LeftNavigationPanel';
 
 function AppLayout() {
   return (
-    <div>
+    <>
       <CssBaseline />
-      <Header />
-      <TestComponent />
-    </div>
+      <Box display="flex" height="100vh">
+        <LeftNavigationPanel />
+        <Box width="100%">
+          <Header />
+        </Box>
+      </Box>
+    </>
   );
 }
 
