@@ -7,7 +7,7 @@ export default function LeftNavigationPanel() {
       sx={(theme) => ({
         width: '400px',
         backgroundColor: theme.palette.secondary.main,
-        height: '100%',
+        height: '100vh',
       })}
     >
       Left panel

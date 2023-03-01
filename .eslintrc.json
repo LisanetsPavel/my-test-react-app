@@ -14,7 +14,7 @@
     ],
     "overrides": [
         {
-            "files": ["src/store/*/reducers/*.ts"],
+            "files": ["src/store/*/reducers/*.ts", "src/store/*/queries/*.ts"],
             "rules": {
                 "no-param-reassign": 0
             }
