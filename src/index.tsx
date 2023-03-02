@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from '@configs/store';
 import { mainTheme } from '@styles/themes';
 import AppLayout from '@views/App/AppLayout';
+import { BrowserRouter } from 'react-router-dom';
 
 const theme = createTheme(mainTheme);
 
@@ -14,7 +15,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <AppLayout />
+        <BrowserRouter>
+          <AppLayout />
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

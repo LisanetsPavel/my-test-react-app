@@ -32,7 +32,7 @@ export default function UsersList() {
         }}
       >
         {data?.map((user: User) => (
-          <UserItem user={user} />
+          <UserItem key={user.id} user={user} />
         ))}
       </Box>
       {error && `${error}`}

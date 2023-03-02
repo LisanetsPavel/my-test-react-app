@@ -8,4 +8,5 @@ export default (theme: Theme) => ({
   height: '100px',
   borderBottom: '1px solid',
   width: '100%',
+  padding: theme.spacing(2),
 });
