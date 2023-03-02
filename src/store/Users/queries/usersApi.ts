@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { RootState } from '@configs/store';
 
 export interface User {
   id: number;
@@ -12,7 +13,16 @@ export interface User {
 
 export const usersApi = createApi({
   reducerPath: 'usersApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'http://localhost:3001/',
+    prepareHeaders: (headers, { getState }) => {
+      const { token } = (getState() as RootState).auth;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
+  }),
   tagTypes: ['Users'],
   endpoints: (build) => ({
     getUsers: build.query<User[], void>({
