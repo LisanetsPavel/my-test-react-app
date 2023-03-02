@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from '@store/Counter';
 import { templateFormReducer } from '@store/TemplateForm';
+import { authReducer } from '@store/Auth';
 import { postsApi } from '@store/Posts/queries/postsApi';
 import { usersApi } from '@store/Users';
 
@@ -8,6 +9,7 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     templateForm: templateFormReducer,
+    auth: authReducer,
     [postsApi.reducerPath]: postsApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
   },

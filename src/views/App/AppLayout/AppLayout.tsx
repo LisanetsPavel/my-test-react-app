@@ -1,21 +1,29 @@
 import React from 'react';
-import { Box, CssBaseline } from '@mui/material';
-
-import Header from '@views/App/Header';
-import { LeftNavigationPanel } from '@views/App/LeftNavigationPanel';
-import { UsersForm } from '@views/Users';
+import { CssBaseline } from '@mui/material';
+import { MainContainer } from '@views/App/MainContainer';
+import { Route, Routes } from 'react-router-dom';
+import { UsersForm, UsersList } from '@views/Users';
+import { Posts } from '@views/Posts';
+import LoginPage from '../../Auth/LoginPage/LoginPage';
+import UserView from '../../Users/UserView/UserView';
+import ProtectedRoute from '../../../components/ProtectedRoute/ProtectedRoute';
 
 function AppLayout() {
   return (
     <>
       <CssBaseline />
-      <Box display="flex">
-        <LeftNavigationPanel />
-        <Box width="100%">
-          <Header />
-          <UsersForm />
-        </Box>
-      </Box>
+      <Routes>
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<MainContainer />}>
+            <Route path="/users" element={<UsersForm />}>
+              <Route path="list" element={<UsersList />} />
+              <Route path=":userId" element={<UserView />} />
+            </Route>
+            <Route path="/posts" element={<Posts />} />
+          </Route>
+        </Route>
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
     </>
   );
 }

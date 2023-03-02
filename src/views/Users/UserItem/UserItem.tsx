@@ -1,14 +1,19 @@
 import { Box, Button, TextField } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import PreviewIcon from '@mui/icons-material/Preview';
 import React, { useState } from 'react';
 import { useDeleteUserMutation, User, useUpdateUserMutation } from '@store/Users';
+import { useNavigate } from 'react-router-dom';
+import { invisibleIconStyles } from '@styles/sharedStyles';
 
 interface Props {
   user: User;
 }
 
 export default function UserItem({ user }: Props) {
+  const navigate = useNavigate();
+
   const [editMode, setEditMode] = useState<boolean>();
 
   const [newUserName, setNewUsername] = useState<string>(user.name);
@@ -28,6 +33,10 @@ export default function UserItem({ user }: Props) {
   const handleEditUser = () => {
     updateUser({ ...user, name: newUserName });
     setEditMode(false);
+  };
+
+  const handleShowUserDetails = () => {
+    navigate(`/users/${user.id}`);
   };
 
   return (
@@ -68,24 +77,9 @@ export default function UserItem({ user }: Props) {
         <>
           {user?.name}
           <Box display="flex" gap={2}>
-            <EditIcon
-              sx={{
-                visibility: 'hidden',
-                '&:hover': {
-                  cursor: 'pointer',
-                },
-              }}
-              onClick={() => setEditMode(true)}
-            />
-            <DeleteIcon
-              sx={{
-                visibility: 'hidden',
-                '&:hover': {
-                  cursor: 'pointer',
-                },
-              }}
-              onClick={() => onDeleteClick(user?.id)}
-            />
+            <PreviewIcon sx={invisibleIconStyles} onClick={handleShowUserDetails} />
+            <EditIcon sx={invisibleIconStyles} onClick={() => setEditMode(true)} />
+            <DeleteIcon sx={invisibleIconStyles} onClick={() => onDeleteClick(user?.id)} />
           </Box>
         </>
       )}
